@@ -3,7 +3,6 @@ from . import models
 # Register your models here.
 admin.site.register(models.CourseCategory)
 admin.site.register(models.CourseDetails)
-admin.site.register(models.UserDetails)
 
 
 class AccountAdmin(admin.ModelAdmin):

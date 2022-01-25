@@ -1,6 +1,6 @@
 from unicodedata import category
 from django.db import models
-from django.contrib.auth.models import User
+
 from django.contrib.auth.models import BaseUserManager, AbstractBaseUser
 from django.db.models.base import Model
 from datetime import datetime
@@ -12,20 +12,13 @@ GENDER_CHOICES = (
     )
 
 class MyAccountManager(BaseUserManager):
-    def create_user(self,username,email,mobile,gender,password):
+    def create_user(self,email,password=None):
         if not email:
             raise ValueError('Please Enter Email')
-        if not username:
-            raise ValueError('Please Enter Username')
-        if not mobile:
-            raise ValueError('Please Enter Mobile Number')
         if not password:
             raise ValueError('Please Enter Password')
         user=self.model(
-            email       =self.normalize_email(email),
-            mobile      =mobile,
-            gender      =gender,
-
+            email  =  self.normalize_email(email),
 
         )
         user.set_password(password)
@@ -34,17 +27,17 @@ class MyAccountManager(BaseUserManager):
     
 
 
-    def create_superuser(self,email,username,password):
+    def create_superuser(self,email,password):
         user=self.create_user(
             email=self.normalize_email(email),
-            password=password,
-
+            password=password
         )
-        user.is_admin=True
+       
         user.is_active=True
         user.is_staff=True
-        user.is_superadmin=True
-        user.password=user.set_password(user.password)
+        user.is_superuser=True
+        user.is_verified=True
+        user.set_password(password)
         user.save(using=self._db)
         return user
 
@@ -66,38 +59,31 @@ class Account(AbstractBaseUser):
     is_superuser   =models.BooleanField(default=False)
 
     USERNAME_FIELD  ='email'
-    REQUIRED_FIELDS =['username', 'gender', 'mobile','password']
+    REQUIRED_FIELDS =['password']
     
     objects=MyAccountManager()
 
     def get_date(self):
         time = datetime.now()
-        if self.date_joined.day == time.day:
-            return str(time.hour - self.date_joined.hour) + " hours ago"
+        if self.joined_date.day == time.day:
+            return str(time.hour - self.joined_date.hour) + " hours ago"
         else:
-            if self.date_joined.month == time.month:
-                return str(time.day - self.date_joined.day) + " days ago"
+            if self.joined_date.month == time.month:
+                return str(time.day - self.joined_date.day) + " days ago"
             else:
-                if self.date_joined.year == time.year:
-                    return str(time.month - self.date_joined.month) + " months ago"
-        return self.date_joined
+                if self.joined_date.year == time.year:
+                    return str(time.month - self.joined_date.month) + " months ago"
+        return self.joined_date
 
     def __str__(self):
         return self.email
     def has_perm(self,perm,obj=None):
-        return self.is_admin
+        return self.is_superuser
     def has_module_perms(self,add_label):
         return True
     
 """Custom user model End"""
-class UserDetails(models.Model):
-    user=models.ForeignKey(User,on_delete=models.CASCADE)
-    mobile = models.CharField(max_length=20)
-    is_verified = models.BooleanField(default=False)
-    is_online = models.BooleanField(default=False)
-    
-    class Meta:
-        verbose_name_plural ="1. UserDetails"
+
         
 class CourseCategory(models.Model):
     name = models.CharField(max_length=100)
@@ -109,7 +95,7 @@ class CourseCategory(models.Model):
         return self.name
 class CourseDetails(models.Model):
     category=models.ForeignKey(CourseCategory,on_delete=models.CASCADE,db_column='name')
-    creator=models.ForeignKey(User,on_delete=models.CASCADE,db_column='username')
+    creator=models.ForeignKey(Account,on_delete=models.CASCADE,db_column='username')
     title = models.CharField(max_length=100)
     description = models.TextField(default=None,null=True,blank=True)
     price=models.IntegerField(default=0)

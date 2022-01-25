@@ -8,7 +8,9 @@ https://docs.djangoproject.com/en/4.0/topics/settings/
 
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
+
 """
+
 import os
 from decouple import config
 from pathlib import Path
@@ -71,7 +73,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'teachme_api.wsgi.application'
-
+AUTH_USER_MODEL =   'main.Account'
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
@@ -118,8 +120,13 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
-STATIC_URL = 'static/'
 
+STATIC_URL = 'static/'
+STATICFILES_DIRS=[BASE_DIR/'static']
+STATIC_ROOT=BASE_DIR/'assets'
+
+MEDIA_URL='/media/'
+MEDIA_ROOT= BASE_DIR/'media'
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
