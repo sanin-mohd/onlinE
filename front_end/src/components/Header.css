@@ -1,0 +1,27 @@
+.center{
+    margin: 0;
+
+}
+.hide {
+    display: none;
+  }
+      
+  .myDIV:hover + .hide {
+      position: absolute;
+      top: 65%;
+    display: block;
+    color: rgb(255, 255, 255);
+  }
+  .size{
+      font-size:12px;
+      font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+  }
+  @media screen and (max-width: 990px) {
+    .navbar-nav {
+        display: flex;
+        flex-direction: row;
+        /* padding-left: 0; */
+        margin-bottom: 0;
+        list-style: none;
+    }
+  }
