@@ -7,12 +7,13 @@ import MenuBookIcon from "@mui/icons-material/MenuBook";
 import IconButton from "@mui/material/IconButton";
 import Tooltip from "@mui/material/Tooltip";
 import "./Header.css";
+import './Fixed_Header_Footer.css'
 import {Link} from 'react-router-dom';
 
 function Header() {
   return (
     <div>
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+      <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-header">
         <div className="container">
           <Link to="/" className="navbar-brand center">
             <LocalLibraryRoundedIcon />

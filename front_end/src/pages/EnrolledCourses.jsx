@@ -2,9 +2,10 @@ import React from 'react';
 import {Link} from 'react-router-dom'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
+import EnrolledComponent from '../components/EnrolledComponent'
 import UserSideBar from '../components/UserSideBar';
-import DashboardComponent from '../components/DashboardComponent';
-function Dashboard() {
+
+function EnrolledCourses() {
   return <div>
       <Header/>
       <div className="container mt-4">
@@ -13,8 +14,8 @@ function Dashboard() {
                     <UserSideBar/>
               </aside>
               <div className="col-md-9">
-                    
-                <DashboardComponent/>
+                    <EnrolledComponent/>
+
               </div>
           </div>
       </div>
@@ -22,4 +23,4 @@ function Dashboard() {
   </div>;
 }
 
-export default Dashboard;
+export default EnrolledCourses;

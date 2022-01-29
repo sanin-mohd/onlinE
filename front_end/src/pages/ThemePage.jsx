@@ -1,9 +1,10 @@
 import React from 'react';
 import ThemeHeader from '../components/ThemeHeader';
 import Footer from '../components/Footer';
+
 function ThemePage() {
   return <div>
-      <ThemeHeader/>
+      <ThemeHeader />
       <div className="">
             <div className="">
                 <div className="col-12 bg-dark">

@@ -3,8 +3,9 @@ import {Link} from 'react-router-dom'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import UserSideBar from '../components/UserSideBar';
-import DashboardComponent from '../components/DashboardComponent';
-function Dashboard() {
+import ProfileSettingsComponent from '../components/ProfileSettingsComponent'
+
+function ProfileSettings() {
   return <div>
       <Header/>
       <div className="container mt-4">
@@ -13,8 +14,7 @@ function Dashboard() {
                     <UserSideBar/>
               </aside>
               <div className="col-md-9">
-                    
-                <DashboardComponent/>
+                    <ProfileSettingsComponent/>
               </div>
           </div>
       </div>
@@ -22,4 +22,4 @@ function Dashboard() {
   </div>;
 }
 
-export default Dashboard;
+export default ProfileSettings;

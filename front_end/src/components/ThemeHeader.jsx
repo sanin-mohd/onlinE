@@ -13,7 +13,7 @@ import {Link} from 'react-router-dom';
 function ThemeHeader() {
   return (
     <div>
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+      <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-header">
         <div className="container">
           <Link to="/" className="navbar-brand center">
             <LocalLibraryRoundedIcon className="m-2"/>
