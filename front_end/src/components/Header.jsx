@@ -54,14 +54,14 @@ function Header() {
               </li>
 
               <li className="nav-item ms-3 ">
-                <Link to="/" className="nav-link">
-                  <Tooltip title="Messages">
+                <Link to="/messenger" className="nav-link">
+                  <Tooltip title="Messager">
                     <ForumIcon />
                   </Tooltip>
                 </Link>
               </li>
               <li className="nav-item ms-3">
-                <Link to="/" className="nav-link">
+                <Link to="/wallet" className="nav-link">
                   <Tooltip title="Wallet">
                     <AccountBalanceWalletIcon/>
                   </Tooltip>

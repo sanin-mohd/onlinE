@@ -12,7 +12,7 @@ function UserSideBar() {
             <Link to="/enrolled_courses" className="list-group-item list-group-item-action">Enrolled Courses</Link>
             <Link to="/profile_settings" className="list-group-item list-group-item-action">Profile Settings</Link>
             <Link to="/change_password" className="list-group-item list-group-item-action">Change Password</Link>
-            <Link to="/logout" className="list-group-item list-group-item-action text-danger">Log Out</Link>
+            <Link to="/" className="list-group-item list-group-item-action text-danger">Log Out</Link>
             
             
 

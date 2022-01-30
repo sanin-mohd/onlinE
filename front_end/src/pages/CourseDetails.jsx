@@ -29,17 +29,17 @@ function CorseDetails() {
           
         </div>
       </div>
-      <div class="card mt-5" >
-        <div class="card-header">
+      <div className="card mt-5" >
+        <div className="card-header">
           Play List
         </div>
-        <ul class="list-group list-group-flush ">
-          <li class="list-group-item ">1.  Introduction<span className="float-end me-3"><span className="m-auto">10 Minutes</span><button class="btn btn-sm float-end"><YouTubeIcon/></button></span> </li>
-          <li class="list-group-item">2. Project Setup<span className="float-end me-3"><span className="m-auto">10 Minutes</span><button class="btn btn-sm float-end"><YouTubeIcon/></button></span> </li>
-          <li class="list-group-item">3. Video 1<span className="float-end me-3"><span className="m-auto">10 Minutes</span><button class="btn btn-sm float-end"><YouTubeIcon/></button></span> </li>
-          <li class="list-group-item ">4.  Introduction<span className="float-end me-3"><span className="m-auto">10 Minutes</span><button class="btn btn-sm float-end"><YouTubeIcon/></button></span> </li>
-          <li class="list-group-item">5. Project Setup<span className="float-end me-3"><span className="m-auto">10 Minutes</span><button class="btn btn-sm float-end"><YouTubeIcon/></button></span> </li>
-          <li class="list-group-item">6. Video 1<span className="float-end me-3"><span className="m-auto">10 Minutes</span><button class="btn btn-sm float-end"><YouTubeIcon/></button></span> </li>
+        <ul className="list-group list-group-flush ">
+          <li className="list-group-item ">1.  Introduction<span className="float-end me-3"><span className="m-auto">10 Minutes</span><button className="btn btn-sm float-end"><YouTubeIcon/></button></span> </li>
+          <li className="list-group-item">2. Project Setup<span className="float-end me-3"><span className="m-auto">10 Minutes</span><button className="btn btn-sm float-end"><YouTubeIcon/></button></span> </li>
+          <li className="list-group-item">3. Video 1<span className="float-end me-3"><span className="m-auto">10 Minutes</span><button className="btn btn-sm float-end"><YouTubeIcon/></button></span> </li>
+          <li className="list-group-item ">4.  Introduction<span className="float-end me-3"><span className="m-auto">10 Minutes</span><button className="btn btn-sm float-end"><YouTubeIcon/></button></span> </li>
+          <li className="list-group-item">5. Project Setup<span className="float-end me-3"><span className="m-auto">10 Minutes</span><button className="btn btn-sm float-end"><YouTubeIcon/></button></span> </li>
+          <li className="list-group-item">6. Video 1<span className="float-end me-3"><span className="m-auto">10 Minutes</span><button className="btn btn-sm float-end"><YouTubeIcon/></button></span> </li>
         
         </ul>
       </div>

@@ -5,22 +5,22 @@ function ChangePasswordComponent() {
          <div className="card">
                       <h3 className="card-header">Change Password</h3>
                       <div className="card-body">
-                <div class="mb-3 row">
-                    <label for="staticEmail" class="col-sm-2 col-form-label">Current Password</label>
-                    <div class="col-sm-10">
-                    <input type="password"  class="form-control-plaintext" id="staticEmail" placeholder="************"/>
+                <div className="mb-3 row">
+                    <label for="staticEmail" className="col-sm-2 col-form-label">Current Password</label>
+                    <div className="col-sm-10">
+                    <input type="password"  className="form-control-plaintext" id="staticEmail" placeholder="************"/>
                     </div>
                 </div>
-                <div class="mb-3 row">
-                    <label for="staticEmail" class="col-sm-2 col-form-label">New Password</label>
-                    <div class="col-sm-10">
-                    <input type="password" readonly class="form-control-plaintext" id="staticEmail" placeholder="************"/>
+                <div className="mb-3 row">
+                    <label for="staticEmail" className="col-sm-2 col-form-label">New Password</label>
+                    <div className="col-sm-10">
+                    <input type="password" readonly className="form-control-plaintext" id="staticEmail" placeholder="************"/>
                     </div>
                 </div>
-                <div class="mb-3 row">
-                    <label for="staticEmail" class="col-sm-2 col-form-label">Confirm Password</label>
-                    <div class="col-sm-10">
-                    <input type="password" readonly class="form-control-plaintext" id="staticEmail" placeholder="************"/>
+                <div className="mb-3 row">
+                    <label for="staticEmail" className="col-sm-2 col-form-label">Confirm Password</label>
+                    <div className="col-sm-10">
+                    <input type="password" readonly className="form-control-plaintext" id="staticEmail" placeholder="************"/>
                     </div>
                 </div>
                

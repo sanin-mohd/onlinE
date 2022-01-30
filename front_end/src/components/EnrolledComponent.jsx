@@ -10,28 +10,33 @@ function EnrolledComponent() {
                                 <tr>
                                     <th>Course Title</th>
                                     <th>Created By</th>
-                                    <th>Chat</th>
+                                    <th>Status</th>
+                                    <th>Get Support</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
                                     <td>Python Basics</td>
                                     <td>Rahul</td>
+                                    <td>100% Completed</td>
                                     <td><Link to="" ><button className='btn btn-dark btn-sm  m-1'>Connect</button></Link></td>
                                 </tr>
                                 <tr>
                                     <td>Python Basics</td>
                                     <td>Rahul</td>
+                                    <td>50% completed</td>
                                     <td><Link to="" ><button className='btn btn-dark btn-sm m-1'>Connect</button></Link></td>
                                 </tr>
                                 <tr>
                                     <td>Python Basics</td>
                                     <td>Rahul</td>
+                                    <td>50% completed</td>
                                     <td><Link to="" ><button className='btn btn-dark btn-sm m-1'>Connect</button></Link></td>
                                 </tr>
                                 <tr>
                                     <td>Python Basics</td>
                                     <td>Rahul</td>
+                                    <td>100% Completed</td>
                                     <td><Link to="" ><button className='btn btn-dark btn-sm m-1'>Connect</button></Link></td>
                                 </tr>
                                 

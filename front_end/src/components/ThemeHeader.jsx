@@ -15,10 +15,13 @@ function ThemeHeader() {
     <div>
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-header">
         <div className="container">
+        <span className="text-center fw-bold text-white">Learn While You Earn</span>
           <Link to="/" className="navbar-brand center">
             <LocalLibraryRoundedIcon className="m-2"/>
             OnlinE
           </Link>
+          
+         
           <button
             className="navbar-toggler"
             type="button"
