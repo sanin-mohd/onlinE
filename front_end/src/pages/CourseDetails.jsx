@@ -4,7 +4,7 @@ import YouTubeIcon from '@mui/icons-material/YouTube';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
-function CorseDetails() {
+function CourseDetails() {
   let {course_id}=useParams()
   return <div className="">
      <Header/>
@@ -22,7 +22,7 @@ function CorseDetails() {
         <div className="col-9">
           <h1>Course Title <span className="float-end fs-5 btn btn-light" style={{cursor: "default"}}>FREE / ₹499</span> </h1>
           <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odio iusto odit accusamus doloribus eius atque blanditiis, vero incidunt alias tenetur error eligendi nulla voluptatibus aut quidem. Voluptas delectus aliquid assumenda omnis eum, error autem soluta magnam quibusdam atque excepturi laborum ab temporibus obcaecati qui quae! Nisi autem hic corrupti cumque itaque modi corporis nihil! Perspiciatis, quis? Corrupti adipisci, dolorum, minus magnam minima iste saepe tempora blanditiis asperiores, enim autem consectetur aspernatur dolorem. Aspernatur esse facere odio tenetur harum, alias quam neque, quidem doloremque incidunt, laudantium laborum adipisci. Odio temporibus pariatur nulla fugit? Veniam praesentium voluptatum odit libero rem, perspiciatis ipsa!</p>
-          <p><b>Created by        : </b><a href="#" style={{textDecoration:"None"}}>Sanin_mohd</a> 12/12/12</p>
+          <p><b>Created by        : </b><Link to="/user_details/1" style={{textDecoration:"None"}}>Sanin_mohd</Link> 12/12/12</p>
           <p><b>Duration          : </b>3 Hours</p>
           <p><b>Enrolled Students : </b>123 Students</p>
           <button className="btn btn-primary float-end">Enroll Now</button>
@@ -34,7 +34,31 @@ function CorseDetails() {
           Play List
         </div>
         <ul className="list-group list-group-flush ">
-          <li className="list-group-item ">1.  Introduction<span className="float-end me-3"><span className="m-auto">10 Minutes</span><button className="btn btn-sm float-end"><YouTubeIcon/></button></span> </li>
+          <li className="list-group-item ">
+            1.  Introduction
+            <span className="float-end me-3">
+              <span className="m-auto">10 Minutes</span>
+              <button className="btn btn-sm float-end" data-bs-toggle="modal" data-bs-target="#exampleModal1"><YouTubeIcon/></button>
+             {/* Video Modal */}
+                    <div className="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                      <div className="modal-dialog modal-xl">
+                        <div className="modal-content">
+                          <div className="modal-header">
+                            <h5 className="modal-title" id="exampleModalLabel">Video Title</h5>
+                            <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          </div>
+                          <div className="modal-body">
+                          <div class="ratio ratio-16x9">
+                                <iframe src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" title="YouTube video" allowfullscreen></iframe>
+                          </div>
+                          </div>
+                          
+                        </div>
+                      </div>
+                    </div>
+              {/* End Video Modal */}
+            </span> 
+          </li>
           <li className="list-group-item">2. Project Setup<span className="float-end me-3"><span className="m-auto">10 Minutes</span><button className="btn btn-sm float-end"><YouTubeIcon/></button></span> </li>
           <li className="list-group-item">3. Video 1<span className="float-end me-3"><span className="m-auto">10 Minutes</span><button className="btn btn-sm float-end"><YouTubeIcon/></button></span> </li>
           <li className="list-group-item ">4.  Introduction<span className="float-end me-3"><span className="m-auto">10 Minutes</span><button className="btn btn-sm float-end"><YouTubeIcon/></button></span> </li>
@@ -100,4 +124,4 @@ function CorseDetails() {
   
 }
 
-export default CorseDetails;
+export default CourseDetails;

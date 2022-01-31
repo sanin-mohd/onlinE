@@ -30,6 +30,18 @@ function ProfileSettingsComponent() {
                     <input type="file" readonly className="form-control-plaintext" id="staticEmail" />
                     </div>
                 </div>
+                <div className="mb-3 row">
+                    <label for="staticEmail" className="col-sm-2 col-form-label">Bio Details</label>
+                    <div className="col-sm-6">
+                    <textarea row="4" type="text" readonly className="form-control-plaintext" id="staticEmail" placeholder="Enter Here"/>
+                    </div>
+                </div>
+                <div className="mb-3 row">
+                    <label for="staticEmail" className="col-sm-2 col-form-label">Interests</label>
+                    <div className="col-sm-6">
+                    <textarea row="4" type="text" readonly className="form-control-plaintext" id="staticEmail" placeholder="Python, React, Java..."/>
+                    </div>
+                </div>
                 <h5 className='card-header'>Bank Datails</h5>
                 <div className="mb-3 row">
                     <label for="staticEmail" className="col-sm-2 col-form-label">Account Holder</label>

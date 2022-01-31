@@ -15,7 +15,7 @@ function Header() {
     <div>
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-header">
         <div className="container">
-          <Link to="/" className="navbar-brand center">
+          <Link to="/home" className="navbar-brand center">
             <LocalLibraryRoundedIcon />
             OnlinE
           </Link>
@@ -84,7 +84,7 @@ function Header() {
                     <Link to="/dashboard" className="dropdown-item">Dashboard</Link>
                   </li>
                   <li>
-                    <a className="dropdown-item">Logout</a>
+                    <Link to="/" className="dropdown-item">Logout</Link>
                   </li>
                 </ul>
               </li>
