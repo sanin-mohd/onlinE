@@ -20,6 +20,7 @@ import AdminUsers from './admin pages/AdminUsers'
 import AdminCourses from './admin pages/AdminCourses'
 import AdminCategories from './admin pages/AdminCategories'
 import UserDetails from './pages/UserDetails'
+import AllCourses from './pages/AllCourses'
 function Main() {
   return <div>
       
@@ -30,6 +31,7 @@ function Main() {
         <Route path="/login" element={<Login/>}></Route>
         <Route path="/register" element={<Register/>}></Route>
         <Route path="/home" element={<Home/>}></Route>
+        <Route path="/all_courses" element={<AllCourses/>}></Route>
         <Route path="/details/:course_id" element={<CourseDetails/>}></Route>
         <Route path="/user_details/:user_id" element={<UserDetails/>}></Route>
         <Route path="/dashboard" element={<Dashboard/>}></Route>

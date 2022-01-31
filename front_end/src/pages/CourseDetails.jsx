@@ -48,7 +48,7 @@ function CourseDetails() {
                             <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                           </div>
                           <div className="modal-body">
-                          <div class="ratio ratio-16x9">
+                          <div className="ratio ratio-16x9">
                                 <iframe src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" title="YouTube video" allowfullscreen></iframe>
                           </div>
                           </div>

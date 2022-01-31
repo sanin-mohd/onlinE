@@ -10,28 +10,49 @@ function MyStudentsComponent() {
                                 <tr>
                                     <th>Username</th>
                                     <th>Course Taken</th>
-                                    <th>Chat</th>
+                                    <th>Progress</th>
+                                    <th>Help</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
                                     <td>Rahul</td>
                                     <td>Python Basics</td>
+                                    <td>
+                                    <div className="progress">
+                                        <div className="progress-bar progress-bar-striped bg-success" role="progressbar" style={{width: "45%", ariaValueNow:"25", ariaValueMin:"0", ariaValueMax:"100"}}>45%</div>
+                                    </div>
+                                    </td>
                                     <td><Link to="" ><button className='btn btn-dark btn-sm  m-1'>Connect</button></Link></td>
                                 </tr>
                                 <tr>
                                     <td>Rahul</td>
                                     <td>Python Basics</td>
+                                    <td>
+                                    <div className="progress">
+                                        <div className="progress-bar progress-bar-striped bg-success" role="progressbar" style={{width: "45%", ariaValueNow:"25", ariaValueMin:"0", ariaValueMax:"100"}}>45%</div>
+                                    </div>
+                                    </td>
                                     <td><Link to="" ><button className='btn btn-dark btn-sm m-1'>Connect</button></Link></td>
                                 </tr>
                                 <tr>
                                     <td>Rahul</td>
                                     <td>Python Basics</td>
+                                    <td>
+                                    <div className="progress">
+                                        <div className="progress-bar progress-bar-striped bg-success" role="progressbar" style={{width: "45%", ariaValueNow:"25", ariaValueMin:"0", ariaValueMax:"100"}}>45%</div>
+                                    </div>
+                                    </td>
                                     <td><Link to="" ><button className='btn btn-dark btn-sm m-1'>Connect</button></Link></td>
                                 </tr>
                                 <tr>
                                     <td>Rahul</td>
                                     <td>Python Basics</td>
+                                    <td>
+                                    <div className="progress">
+                                        <div className="progress-bar progress-bar-striped bg-success" role="progressbar" style={{width: "45%", ariaValueNow:"25", ariaValueMin:"0", ariaValueMax:"100"}}>45%</div>
+                                    </div>
+                                    </td>
                                     <td><Link to="" ><button className='btn btn-dark btn-sm m-1'>Connect</button></Link></td>
                                 </tr>
                                 
