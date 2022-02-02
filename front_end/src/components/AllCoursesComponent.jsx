@@ -15,7 +15,13 @@ function AllCoursesComponent() {
             </Link>
             <div className="card-body">
               <Link to="/details/1" className="card-title">Card title</Link>
+             
             </div>
+          
+              <div className="card-footer">
+                <span>Rating : 4.5/5</span>
+                <span className="float-end fs-6">Views : 1234</span>
+              </div>
           </div>
         </div>
         <div className=" col-12 col-md-6 col-lg-4 mt-4">
@@ -26,6 +32,10 @@ function AllCoursesComponent() {
               <a href="#" className="card-title">Card title</a>
               
             </div>
+            <div className="card-footer">
+                <span>Rating : 4.5/5</span>
+                <span className="float-end fs-6">Views : 1234</span>
+              </div>
           </div>
         </div>
 
@@ -37,6 +47,10 @@ function AllCoursesComponent() {
               <a href="#" className="card-title">Card title</a>
               
             </div>
+            <div className="card-footer">
+                <span>Rating : 4.5/5</span>
+                <span className="float-end fs-6">Views : 1234</span>
+              </div>
           </div>
         </div>
         <div className=" col-12 col-md-6 col-lg-4 mt-4">
@@ -47,6 +61,10 @@ function AllCoursesComponent() {
               <a href="#" className="card-title">Card title</a>
               
             </div>
+            <div className="card-footer">
+                <span>Rating : 4.5/5</span>
+                <span className="float-end fs-6">Views : 1234</span>
+              </div>
           </div>
         </div>
         <div className=" col-12 col-md-6 col-lg-4 mt-4">
@@ -57,6 +75,10 @@ function AllCoursesComponent() {
               <a href="#" className="card-title">Card title</a>
               
             </div>
+            <div className="card-footer">
+                <span>Rating : 4.5/5</span>
+                <span className="float-end fs-6">Views : 1234</span>
+              </div>
           </div>
         </div>
 
@@ -69,6 +91,10 @@ function AllCoursesComponent() {
               <a href="#" className="card-title">Card title</a>
               
             </div>
+            <div className="card-footer">
+                <span>Rating : 4.5/5</span>
+                <span className="float-end fs-6">Views : 1234</span>
+              </div>
           </div>
         </div>
         <div className=" col-12 col-md-6 col-lg-4 mt-4">
@@ -79,6 +105,10 @@ function AllCoursesComponent() {
               <a href="#" className="card-title">Card title</a>
               
             </div>
+            <div className="card-footer">
+                <span>Rating : 4.5/5</span>
+                <span className="float-end fs-6">Views : 1234</span>
+              </div>
           </div>
         </div>
         <div className=" col-12 col-md-6 col-lg-4 mt-4">
@@ -89,6 +119,10 @@ function AllCoursesComponent() {
               <a href="#" className="card-title">Card title</a>
               
             </div>
+            <div className="card-footer">
+                <span>Rating : 4.5/5</span>
+                <span className="float-end fs-6">Views : 1234</span>
+              </div>
           </div>
         </div>
         <div className=" col-12 col-md-6 col-lg-4 mt-4">
@@ -99,11 +133,24 @@ function AllCoursesComponent() {
               <a href="#" className="card-title">Card title</a>
               
             </div>
+            <div className="card-footer">
+                <span>Rating : 4.5/5</span>
+                <span className="float-end fs-6">Views : 1234</span>
+              </div>
           </div>
         </div>
       </div>
      
     </div>
+<nav aria-label="Page navigation example ">
+  <ul className="pagination m-5 float-end">
+    <li className="page-item"><a className="page-link" href="#">Previous</a></li>
+    <li className="page-item"><a className="page-link" href="#">1</a></li>
+    <li className="page-item"><a className="page-link" href="#">2</a></li>
+    <li className="page-item"><a className="page-link" href="#">3</a></li>
+    <li className="page-item"><a className="page-link" href="#">Next</a></li>
+  </ul>
+</nav>
 
     </div>
     

@@ -1,9 +1,13 @@
-import React from 'react';
+import {React,useEffect} from 'react';
 import {Link} from 'react-router-dom'
 import AdminHeader from '../admin components/AdminHeader'
 import AdminSideBar from '../admin components/AdminSideBar';
 import AdminDashboardComponent from '../admin components/AdminDashboardComponent';
 function AdminDashboard() {
+  useEffect(() => {
+    document.title="Admin Dashboard"
+   
+  });
   return <div>
       <AdminHeader/>
       <div className="container mt-4">

@@ -1,9 +1,14 @@
-import React from "react";
+import {React,useEffect} from "react";
 import {Link} from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
 function Home() {
+  useEffect(() => {
+    document.title="Home Page"
+   
+  });
+  
   return (
     <div className="">
       <Header/>
@@ -18,7 +23,11 @@ function Home() {
               <Link to="/details/1" className="card-title">Card title</Link>
             </div>
           </div>
-        </div>
+ 
+ <div className="card-footer">
+                <span>Rating : 4.5/5</span>
+                <span className="float-end fs-6">Views : 1234</span>
+              </div>       </div>
 
         <div className=" col-12 col-md-6 col-lg-3 mt-4">
           <div className="card m-auto" style={{ width: "18rem" }}>
@@ -28,6 +37,10 @@ function Home() {
               <a href="#" className="card-title">Card title</a>
               
             </div>
+            <div className="card-footer">
+                <span>Rating : 4.5/5</span>
+                <span className="float-end fs-6">Views : 1234</span>
+              </div>
           </div>
         </div>
 
@@ -39,6 +52,10 @@ function Home() {
               <a href="#" className="card-title">Card title</a>
               
             </div>
+            <div className="card-footer">
+                <span>Rating : 4.5/5</span>
+                <span className="float-end fs-6">Views : 1234</span>
+              </div>
           </div>
         </div>
 
@@ -51,6 +68,10 @@ function Home() {
               <a href="#" className="card-title">Card title</a>
               
             </div>
+            <div className="card-footer">
+                <span>Rating : 4.5/5</span>
+                <span className="float-end fs-6">Views : 1234</span>
+              </div>
           </div>
         </div>
       </div>
@@ -64,6 +85,10 @@ function Home() {
               <a href="#" className="card-title">Card title</a>
               
             </div>
+            <div className="card-footer">
+                <span>Rating : 4.5/5</span>
+                <span className="float-end fs-6">Views : 1234</span>
+              </div>
           </div>
         </div>
 
@@ -75,6 +100,10 @@ function Home() {
               <a href="#" className="card-title">Card title</a>
               
             </div>
+            <div className="card-footer">
+                <span>Rating : 4.5/5</span>
+                <span className="float-end fs-6">Views : 1234</span>
+              </div>
           </div>
         </div>
 
@@ -86,6 +115,10 @@ function Home() {
               <a href="#" className="card-title">Card title</a>
               
             </div>
+            <div className="card-footer">
+                <span>Rating : 4.5/5</span>
+                <span className="float-end fs-6">Views : 1234</span>
+              </div>
           </div>
         </div>
 
@@ -97,6 +130,10 @@ function Home() {
               <a href="#" className="card-title">Card title</a>
               
             </div>
+            <div className="card-footer">
+                <span>Rating : 4.5/5</span>
+                <span className="float-end fs-6">Views : 1234</span>
+              </div>
           </div>
         </div>
 

@@ -6,10 +6,7 @@ from django.db.models.base import Model
 from datetime import datetime
 # Create your models here.
 """Custom user model Start"""
-GENDER_CHOICES = (
-        ('Male', 'Male'),
-        ('Female', 'Female'),
-    )
+
 
 class MyAccountManager(BaseUserManager):
     def create_user(self,email,password=None):
@@ -47,9 +44,14 @@ class Account(AbstractBaseUser):
     username        =models.CharField(max_length=50)
     email           =models.EmailField(max_length=100,unique=True)   
     mobile          =models.CharField(max_length=10,unique=True,null=True)
-    gender          =models.CharField(max_length=10, choices=GENDER_CHOICES,default="Male")
     password        =models.CharField(max_length=20,blank=False,null=False)
     dp              =models.ImageField(upload_to='photos/users_dp/',blank=True)
+    interests       =models.TextField(max_length=1000,null=True,blank=True)
+    wallet_balance  =models.IntegerField(default=0)
+    account_holder_name =models.CharField(max_length=200,null=True,blank=True)
+    bank            =models.CharField(max_length=200,null=True,blank=True)
+    acc             =models.CharField(max_length=20,null=True,blank=True)
+    ifsc            =models.CharField(max_length=20,null=True,blank=True)
 
     joined_date     =models.DateTimeField(auto_now_add=True)
     last_login      =models.DateTimeField(auto_now=True)
@@ -93,6 +95,7 @@ class CourseCategory(models.Model):
     
     def __str__(self):
         return self.name
+    
 class CourseDetails(models.Model):
     category=models.ForeignKey(CourseCategory,on_delete=models.CASCADE,db_column='name')
     creator=models.ForeignKey(Account,on_delete=models.CASCADE,db_column='username')
@@ -104,4 +107,20 @@ class CourseDetails(models.Model):
     
     class Meta:
         verbose_name_plural ="3. CourseDetails"
+
+class UserCourseProgress(models.Model):
+    course      =   models.ForeignKey(CourseDetails,on_delete=models.CASCADE)
+    user        =   models.ForeignKey(Account,on_delete=models.CASCADE)
+    subject     =   models.CharField(max_length=200,blank=True)
+    review      =   models.TextField(max_length=500,blank=True)
+    rating      =   models.FloatField()
+    progress    =   models.IntegerField()
+    status      =   models.BooleanField(default=False)
+    created_at  =   models.DateTimeField(auto_now_add=True)
+    updated_at  =   models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.subject
     
+class TransactionHistory(models.Model):
+    pass

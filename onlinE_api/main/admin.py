@@ -7,7 +7,7 @@ admin.site.register(models.CourseDetails)
 
 class AccountAdmin(admin.ModelAdmin):
     model = models.Account
-    list_display = ('username', 'email', 'mobile', 'gender','is_staff','is_verified','is_active','last_login','joined_date') 
+    list_display = ('username', 'email', 'mobile','wallet_balance','interests','is_staff','is_verified','is_active','last_login','joined_date') 
     
     readonly_fields = ('last_login','joined_date')
     ordering = ('joined_date', )

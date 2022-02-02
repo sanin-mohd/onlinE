@@ -1,8 +1,12 @@
-import React from 'react';
+import {React,useEffect} from 'react';
 import ThemeHeader from '../components/ThemeHeader';
 import Footer from '../components/Footer';
 
 function ThemePage() {
+    useEffect(() => {
+        document.title="OnlinE"
+       
+      });
   return <div>
       <ThemeHeader />
       <div className="">

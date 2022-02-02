@@ -1,10 +1,14 @@
-import React from 'react';
+import {React,useEffect} from 'react';
 import {Link} from 'react-router-dom'
 import AdminHeader from '../admin components/AdminHeader'
 import AdminUsersComponent from '../admin components/AdminUsersComponent' 
 import AdminSideBar from '../admin components/AdminSideBar';
 
 function AdminUsers() {
+    useEffect(() => {
+        document.title="Admin Users"
+       
+      });
   return <div>
       <AdminHeader/>
       <div className="container mt-4">

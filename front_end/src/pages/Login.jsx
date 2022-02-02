@@ -1,9 +1,13 @@
-import React from 'react';
+import {React,useEffect} from 'react';
 import ThemeHeader from '../components/ThemeHeader';
 import Footer from '../components/Footer';
 import SignIn from '../components/SignIn'
 
 function Login() {
+  useEffect(() => {
+    document.title="Login Page"
+   
+  });
   return <div>
        <ThemeHeader/>
         <div className="container mt-5">

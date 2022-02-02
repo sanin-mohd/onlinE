@@ -1,10 +1,14 @@
-import React from 'react';
+import {React,useEffect} from 'react';
 import {useParams,Link} from 'react-router-dom'
 import YouTubeIcon from '@mui/icons-material/YouTube';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
 function UserDetails() {
+  useEffect(() => {
+    document.title="Creator Details"
+   
+  });
   let {course_id}=useParams()
   return <div className="">
      <Header/>

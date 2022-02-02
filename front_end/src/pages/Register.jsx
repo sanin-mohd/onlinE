@@ -1,8 +1,12 @@
-import React from 'react';
+import {React,useEffect} from 'react';
 import ThemeHeader from '../components/ThemeHeader';
 import Footer from '../components/Footer';
 import SignUp from '../components/SignUp';
 function Register() {
+    useEffect(() => {
+        document.title="Register Page"
+       
+      });
   return <div>
        <ThemeHeader/>
        <div className="container">

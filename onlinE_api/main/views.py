@@ -16,6 +16,7 @@ class AccountList(APIView):
     List all Users, or create a new User.
     
     """
+    serializer_class = AccountSerializer
     
     def get(self, request, format=None):
         users = models.Account.objects.all()

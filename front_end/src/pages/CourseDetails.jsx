@@ -1,10 +1,14 @@
-import React from 'react';
+import {React,useEffect} from 'react';
 import {useParams,Link} from 'react-router-dom'
 import YouTubeIcon from '@mui/icons-material/YouTube';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
 function CourseDetails() {
+  useEffect(() => {
+    document.title="Course Details";
+   
+  });
   let {course_id}=useParams()
   return <div className="">
      <Header/>
@@ -17,6 +21,10 @@ function CourseDetails() {
             <div className="card-body">
               <Link style={{textDecoration:"None"}} to="/details/1" className="card-title">Card title</Link>
             </div>
+            <div className="card-footer">
+                <span>Rating : 4.5/5</span>
+                <span className="float-end fs-6">Views : 1234</span>
+              </div>
           </div>
         </div>
         <div className="col-9">

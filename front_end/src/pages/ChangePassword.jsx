@@ -1,4 +1,4 @@
-import React from 'react';
+import {React,useEffect} from 'react';
 import {Link} from 'react-router-dom'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
@@ -6,6 +6,10 @@ import UserSideBar from '../components/UserSideBar';
 import ChangePasswordComponent from '../components/ChangePasswordComponent'
 
 function ChangePassword() {
+    useEffect(() => {
+        document.title="Change Password"
+       
+      });
   return <div>
       <Header/>
       <div className="container mt-4">
