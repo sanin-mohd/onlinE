@@ -22,12 +22,12 @@ function Home() {
             <div className="card-body">
               <Link to="/details/1" className="card-title">Card title</Link>
             </div>
-          </div>
- 
- <div className="card-footer">
+            <div className="card-footer">
                 <span>Rating : 4.5/5</span>
                 <span className="float-end fs-6">Views : 1234</span>
-              </div>       </div>
+              </div>
+          </div>
+       </div>
 
         <div className=" col-12 col-md-6 col-lg-3 mt-4">
           <div className="card m-auto" style={{ width: "18rem" }}>

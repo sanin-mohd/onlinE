@@ -7,7 +7,27 @@ from . import models
 from . models import Account, CourseCategory, CourseDetails
 from . serializers import AccountSerializer, CourseCategorySerializer, CourseDetailsSerializer
 from rest_framework import generics
-from rest_framework import permissions
+from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
+from rest_framework_simplejwt.views import TokenObtainPairView
+from rest_framework.decorators import permission_classes
+from rest_framework.permissions import IsAuthenticated,IsAdminUser
+
+class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
+    @classmethod
+    def get_token(cls, user):
+        token = super().get_token(user)
+
+        # Add custom claims
+        token['username'] = user.username
+        token['email'] = user.email
+        token['wallet_balance'] = user.wallet_balance
+        
+        # ...
+
+        return token
+
+class MyTokenObtainPairView(TokenObtainPairView):
+    serializer_class = MyTokenObtainPairSerializer
 # Create your views here.
 
 #users api_view
@@ -37,7 +57,7 @@ class AccountDetail(APIView):
     """
     Retrieve, update or delete a snippet instance.
     """
-    permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [IsAuthenticated]
     def get_object(self, pk):
         try:
             return Account.objects.get(pk=pk)
@@ -64,24 +84,24 @@ class AccountDetail(APIView):
     
 #CourseCategory api_view
 class CourseCategoryList(generics.ListCreateAPIView):
-    permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [IsAuthenticated]
     queryset = CourseCategory.objects.all()
     serializer_class = CourseCategorySerializer
 
 
 class CourseCategoryDetail(generics.RetrieveUpdateDestroyAPIView):
-    permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [IsAuthenticated]
     queryset = CourseCategory.objects.all()
     serializer_class = CourseCategorySerializer
     
 #CourseDetails api_view
 class CourseList(generics.ListCreateAPIView):
-    permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [IsAuthenticated]
     queryset = CourseDetails.objects.all()
     serializer_class = CourseDetailsSerializer
 
 
 class CourseDetail(generics.RetrieveUpdateDestroyAPIView):
-    permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [IsAuthenticated]
     queryset = CourseDetails.objects.all()
     serializer_class = CourseDetailsSerializer

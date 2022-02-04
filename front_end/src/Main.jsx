@@ -1,8 +1,11 @@
 import React from 'react';
+import RequireAuth from './RequireAuth'
+import {Routes,Route} from 'react-router-dom'
+import {AuthProvider} from './AuthContext'
+
 import Home from './pages/Home';
 import ThemePage from './pages/ThemePage'
 import CourseDetails from './pages/CourseDetails';
-import {Routes,Route} from 'react-router-dom'
 import Login from './pages/Login'
 import Register from './pages/Register'
 import Dashboard from './pages/Dashboard'
@@ -21,16 +24,17 @@ import AdminCourses from './admin pages/AdminCourses'
 import AdminCategories from './admin pages/AdminCategories'
 import UserDetails from './pages/UserDetails'
 import AllCourses from './pages/AllCourses'
+
 function Main() {
   return <div>
-      
+      <AuthProvider>
       <Routes>
 
         {/* User Routes */}
         <Route path="/" element={<ThemePage/>}></Route>
         <Route path="/login" element={<Login/>}></Route>
         <Route path="/register" element={<Register/>}></Route>
-        <Route path="/home" element={<Home/>}></Route>
+        <Route path="/home" element={<RequireAuth><Home/></RequireAuth>}/>
         <Route path="/all_courses" element={<AllCourses/>}></Route>
         <Route path="/details/:course_id" element={<CourseDetails/>}></Route>
         <Route path="/user_details/:user_id" element={<UserDetails/>}></Route>
@@ -52,7 +56,7 @@ function Main() {
         <Route path="/admin/categories" element={<AdminCategories/>}></Route>
 
       </Routes>
-
+      </AuthProvider>
   </div>;
 }
 

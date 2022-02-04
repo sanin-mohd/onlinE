@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useContext} from "react";
 import LocalLibraryRoundedIcon from "@mui/icons-material/LocalLibraryRounded";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import AccountBalanceWalletIcon from "@mui/icons-material/AccountBalanceWallet";
@@ -9,8 +9,11 @@ import Tooltip from "@mui/material/Tooltip";
 import "./Header.css";
 import './Fixed_Header_Footer.css'
 import {Link} from 'react-router-dom';
+import AuthContext from '../AuthContext';
+
 
 function Header() {
+  const {user,logOutUser} = useContext(AuthContext)
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-header">
@@ -45,6 +48,15 @@ function Header() {
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav mb-2 ms-auto mb-lg-1 d-flex">
+            {user && 
+            <li className="nav-item ms-3 ">
+            <Link to="/home" className="nav-link">
+              <Tooltip title="Username">
+                <h6>{user.username}</h6>
+              </Tooltip>
+            </Link>
+          </li>
+            }
               <li className="nav-item ms-3 ">
                 <Link to="/dashboard" className="nav-link">
                   <Tooltip title="Dashboard">
@@ -60,15 +72,19 @@ function Header() {
                   </Tooltip>
                 </Link>
               </li>
-              <li className="nav-item ms-3">
+              {
+                user && 
+                <li className="nav-item ms-3">
                 <Link to="/wallet" className="nav-link">
                   <Tooltip title="Wallet">
                     <AccountBalanceWalletIcon/>
                   </Tooltip>
-                  <span className='ms-1'>₹2500</span>
+                  <span className='ms-1'>₹ {user.wallet_balance}</span>
                 </Link>
               </li>
 
+              }
+              
               <li className="nav-item ms-3 dropdown">
                 <a
                   className="nav-link dropdown-toggle"
@@ -84,7 +100,7 @@ function Header() {
                     <Link to="/dashboard" className="dropdown-item">Dashboard</Link>
                   </li>
                   <li>
-                    <Link to="/" className="dropdown-item">Logout</Link>
+                    <p onClick={logOutUser} className="dropdown-item">Logout</p>
                   </li>
                 </ul>
               </li>

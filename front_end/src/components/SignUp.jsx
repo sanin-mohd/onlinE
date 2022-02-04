@@ -24,7 +24,8 @@ export default function SignUp() {
       'mobile': '',
       'email': '',
       'password': '',
-      'interests': ''
+      'interests': '',
+      'is_active': 'True',
 
   });
 
@@ -39,25 +40,32 @@ export default function SignUp() {
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    
-    try{
-      axios.post(BaseUrl+'users_list',data).then((response) => {
-      console.log(response.data);
       
+
+      axios.post(BaseUrl+'users_list',userDetails).then((response) => {
+      console.log(response.data);
       Swal.fire({
         position: 'center',
         icon: 'success',
         title: 'Registration completed successfully',
         showConfirmButton: false,
         timer: 1500
+        })
+      
+    }).catch((error) => {
+      console.log(error.response.data);
+      console.log("---------------CATCH BLOCK");
+      Swal.fire({
+        position: 'center',
+        icon: 'error',
+        title: 'Something Went Wrong',
+        showConfirmButton: false,
+        timer: 1500
       })
-      })
-    }
-    catch(err) {
-      console.log(err);
+        
+    })
       
 
-    }
 
     
     console.log({
@@ -100,6 +108,7 @@ export default function SignUp() {
                   required
                   fullWidth
                   id="firstName"
+                  value={userDetails.username}
                   label="Username"
                   autoFocus
                 />
@@ -111,6 +120,7 @@ export default function SignUp() {
                   fullWidth
                   id="lastName"
                   label="Contact (+91)"
+                  value={userDetails.mobile}
                   name="mobile"
                   autoComplete="family-name"
                 />
@@ -122,6 +132,7 @@ export default function SignUp() {
                   fullWidth
                   id="email"
                   label="Email Address"
+                  value={userDetails.email}
                   name="email"
                   autoComplete="email"
                 />
@@ -133,13 +144,14 @@ export default function SignUp() {
                   onChange={handleChanges}
                   name="password"
                   label="Password"
+                  value={userDetails.password}
                   type="password"
                   id="password"
                   autoComplete="new-password"
                 />
               </Grid>
               <Grid item xs={12}>
-              <textarea className="form-control" onChange={handleChanges} name="interests" style={{width:'100%'}} placeholder="Interests [eg: Python, Java, Django....]" />
+              <textarea className="form-control" value={userDetails.interests} onChange={handleChanges} name="interests" style={{width:'100%'}} placeholder="Interests [eg: Python, Java, Django....]" />
                 
               </Grid>
               
