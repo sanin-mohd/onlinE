@@ -1,4 +1,4 @@
-import {React,useEffect,useState} from 'react';
+import {React,useEffect,useState,useContext} from 'react';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -15,10 +15,13 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import BaseUrl from '../BaseUrl';
 import axios from 'axios';
 import Swal from 'sweetalert2'
-
+import {useNavigate} from 'react-router'
+import AuthContext from '../AuthContext'
 const theme = createTheme();
 
 export default function SignUp() {
+  let {loginUser} = useContext(AuthContext)
+  let navigate = useNavigate()
   const [userDetails, setUserDetails] = useState({
       'username': '',
       'mobile': '',
@@ -40,17 +43,21 @@ export default function SignUp() {
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-      
+    const loginDetails = {'email':userDetails.email, 'password':userDetails.password}
 
       axios.post(BaseUrl+'users_list',userDetails).then((response) => {
       console.log(response.data);
+      axios.post(BaseUrl+'token/',loginDetails).then((response) => {
+        loginUser(loginDetails,response)
+      })
       Swal.fire({
         position: 'center',
         icon: 'success',
         title: 'Registration completed successfully',
         showConfirmButton: false,
-        timer: 1500
+        timer: 1000
         })
+
       
     }).catch((error) => {
       console.log(error.response.data);
@@ -60,7 +67,7 @@ export default function SignUp() {
         icon: 'error',
         title: 'Something Went Wrong',
         showConfirmButton: false,
-        timer: 1500
+        timer: 1000
       })
         
     })

@@ -12,10 +12,16 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-
+import { useState } from 'react';
 const theme = createTheme();
 
 export default function AdminSignIn() {
+  const [adminLoginDetails, setAdminLoginDetails] = useState({'email':'', 'password':''});
+  const handleChanges=((event)=>{
+    setAdminLoginDetails({
+      ...adminLoginDetails,[event.target.name] : event.target.value
+    })
+  })
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -38,14 +44,16 @@ export default function AdminSignIn() {
             alignItems: 'center',
           }}
         >
-          <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
-            <LockOutlinedIcon />
+          <Avatar style={{backgroundColor:'black'}} sx={{ m: 1, bgcolor: 'secondary.main' }}>
+            <LockOutlinedIcon style={{backgroundColor:'black'}} />
           </Avatar>
           <Typography component="h1" variant="h5">
             Admin Login
           </Typography>
           <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
             <TextField
+              onChange={handleChanges}
+              value={adminLoginDetails.email}
               margin="normal"
               required
               fullWidth
@@ -56,6 +64,8 @@ export default function AdminSignIn() {
               autoFocus
             />
             <TextField
+              onChange={handleChanges}
+              value={adminLoginDetails.password}
               margin="normal"
               required
               fullWidth
@@ -66,7 +76,7 @@ export default function AdminSignIn() {
               autoComplete="current-password"
             />
             
-            <Button
+            <Button style={{backgroundColor:'black'}}
               type="submit"
               fullWidth
               variant="contained"

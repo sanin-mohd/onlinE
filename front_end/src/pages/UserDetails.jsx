@@ -29,8 +29,6 @@ function UserDetails() {
           <p><b>Joined Date : </b>12/12/12</p>
           <p><b>Interests : </b>Python, Java, React.js, Node.js</p>
           <p><b>Total Students : </b>123 Students</p>
-          
-          
         </div>
       </div>
       

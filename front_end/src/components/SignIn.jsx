@@ -47,7 +47,7 @@ export default function SignIn() {
         icon: 'success',
         title: 'Successfully Logged In',
         showConfirmButton: false,
-        timer: 1500
+        timer: 1000
         })
 
     
@@ -59,7 +59,7 @@ export default function SignIn() {
         icon: 'error',
         title: 'Invalid Credentials',
         showConfirmButton: false,
-        timer: 1500
+        timer: 1000
       })
         
     })
