@@ -1,5 +1,6 @@
 import {React,useContext} from 'react';
 import RequireAuth from './RequireAuth'
+import AdminAuth from './AdminAuth'
 import {Routes,Route} from 'react-router-dom'
 import {AuthProvider} from './AuthContext'
 
@@ -30,6 +31,13 @@ function Main() {
   return <div>
       <AuthProvider>
       <Routes>
+        {/* Admin Routes */}
+        <Route path="/admin" element={<AdminLogin/>}></Route>
+        <Route path="/admin/dashboard" element={<AdminAuth><AdminDashboard/></AdminAuth>}></Route>
+        <Route path="/admin/users" element={<AdminAuth><AdminUsers/></AdminAuth>}></Route>
+        <Route path="/admin/courses" element={<AdminAuth><AdminCourses/></AdminAuth>}></Route>
+        <Route path="/admin/categories" element={<AdminAuth><AdminCategories/></AdminAuth>}></Route>
+
 
         {/* User Routes */}
         <Route path="/" element={<ThemePage/>}></Route>
@@ -49,12 +57,6 @@ function Main() {
         <Route path="/change_password" element={<RequireAuth><ChangePassword/></RequireAuth>}></Route>
         <Route path="/messenger" element={<RequireAuth><Messenger/></RequireAuth>}></Route>
 
-        {/* Admin Routes */}
-        <Route path="/admin" element={<AdminLogin/>}></Route>
-        <Route path="/admin/dashboard" element={<AdminDashboard/>}></Route>
-        <Route path="/admin/users" element={<AdminUsers/>}></Route>
-        <Route path="/admin/courses" element={<AdminCourses/>}></Route>
-        <Route path="/admin/categories" element={<AdminCategories/>}></Route>
 
       </Routes>
       </AuthProvider>

@@ -1,6 +1,9 @@
-import React from 'react';
+import {React,useContext} from 'react';
 import {Link} from 'react-router-dom'
+import AuthContext from '../AuthContext'
+
 function AdminSideBar() {
+  const {user,logOutUser} = useContext(AuthContext)
   return <div>
         <div className="card">
         
@@ -9,7 +12,7 @@ function AdminSideBar() {
             <Link to="/admin/users" className="list-group-item list-group-item-action">Users</Link>
             <Link to="/admin/courses" className="list-group-item list-group-item-action">Courses</Link>
             <Link to="/admin/categories" className="list-group-item list-group-item-action">Category</Link>
-            <Link to="/" className="list-group-item list-group-item-action text-danger">Log Out</Link>
+            <p onClick={logOutUser} className="list-group-item list-group-item-action text-danger">Log Out</p>
             
             </div>
 

@@ -12,10 +12,16 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { useState } from 'react';
+import { useState,useContext } from 'react';
+import jwt_decode from "jwt-decode";
+import BaseUrl from '../BaseUrl'
+import axios from 'axios';
+import Swal from 'sweetalert2'
+import AuthContext from '../AuthContext'
 const theme = createTheme();
 
 export default function AdminSignIn() {
+  let {loginUser} = useContext(AuthContext)
   const [adminLoginDetails, setAdminLoginDetails] = useState({'email':'', 'password':''});
   const handleChanges=((event)=>{
     setAdminLoginDetails({
@@ -30,6 +36,43 @@ export default function AdminSignIn() {
       email: data.get('email'),
       password: data.get('password'),
     });
+    axios.post(BaseUrl+'token/',adminLoginDetails).then((response) => {
+      var decoded = jwt_decode(response.data.access);
+      if (decoded.is_superuser){
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'Successfully Logged In',
+          showConfirmButton: false,
+          timer: 1000
+          })
+          loginUser(adminLoginDetails,response)
+      }else{
+        Swal.fire({
+          position: 'center',
+          icon: 'error',
+          title: 'Admin Only Page',
+          showConfirmButton: false,
+          timer: 1000
+        })
+      }
+      
+
+     
+
+    
+    }).catch((error) => {
+      console.log(error.response.data);
+      console.log("CATCH BLOCK");
+      Swal.fire({
+        position: 'center',
+        icon: 'error',
+        title: 'Invalid Credentials',
+        showConfirmButton: false,
+        timer: 1000
+      })
+        
+    })
   };
 
   return (

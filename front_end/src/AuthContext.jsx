@@ -19,14 +19,23 @@ export const AuthProvider = ({children})=>{
         console.log(response.data);
         console.log(response);
         if (response.status === 200){
-            console.log("Successfully logged in");
+            
             setAuthToken(response.data);
 
             var decoded = jwt_decode(response.data.access);
+            console.log("Successfully logged in");
+            console.log(decoded);
+            console.log("Successfully logged in");
             setUser(decoded);
             localStorage.setItem('user', JSON.stringify(decoded));
             localStorage.setItem('authToken', JSON.stringify(response.data));
-            navigate('/home')
+            if(decoded.is_superuser) {
+                navigate('/admin/dashboard');
+                
+            }else{
+                
+                navigate('/home')
+            }
         }else{
             console.log("Somthing is wrong");
         }
