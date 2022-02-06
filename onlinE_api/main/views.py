@@ -22,6 +22,8 @@ class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
         token['email'] = user.email
         token['wallet_balance'] = user.wallet_balance
         token['is_superuser'] = user.is_superuser
+        token['mobile'] = user.mobile
+        
         
         # ...
 
@@ -100,7 +102,16 @@ class CourseList(generics.ListCreateAPIView):
     permission_classes = [IsAuthenticated]
     queryset = CourseDetails.objects.all()
     serializer_class = CourseDetailsSerializer
+class UserCourseList(generics.ListAPIView):
+    serializer_class = CourseDetailsSerializer
 
+    def get_queryset(self):
+        """
+        This view should return a list of all the purchases
+        for the currently authenticated user.
+        """
+        user = self.request.user
+        return CourseDetails.objects.filter(creator=user.id)
 
 class CourseDetail(generics.RetrieveUpdateDestroyAPIView):
     permission_classes = [IsAuthenticated]

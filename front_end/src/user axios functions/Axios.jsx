@@ -21,3 +21,22 @@ export const getAllcategories = () => {
     })
 
 }
+
+export const getUsercourses = () => {
+    return new Promise((resolve, reject) => {
+        const AccessToken = JSON.parse(localStorage.getItem('authToken')).access
+        axios.get(BaseUrl+'user_courses', { headers: {"Authorization" : `Bearer ${AccessToken}`} }).then((response) => {
+            console.log(response.data);
+            console.log("getUsercourses  Axios working");
+            resolve(response.data)
+ 
+        }).catch((err) => {
+            console.log("getUsercourses  Axios Not working");
+            reject(err)
+
+
+        })
+
+    })
+
+}

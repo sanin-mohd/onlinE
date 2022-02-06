@@ -1,6 +1,22 @@
-import React from 'react';
+import {React,useEffect,useState,useContext} from 'react';
 import {Link} from 'react-router-dom'
+import AuthContext from '../AuthContext'
+import {getUsercourses} from '../user axios functions/Axios'
+
+
 function MyCoursesComponent() {
+    const {authToken,user} = useContext(AuthContext)
+    const [courses, setCourses] = useState([]);
+
+
+    useEffect(() => {
+        getUsercourses().then((courses) => {
+            setCourses(courses)
+            courses.forEach((course) =>{
+                console.log(course.title);
+            })
+        })
+    },[])
   return <div>
               <div className="card">
                       <h3 className="card-header">My Courses</h3>
@@ -16,34 +32,21 @@ function MyCoursesComponent() {
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td> <Link to="chapters/1" >Python Basics</Link> </td>
-                                    <td>2342</td>
-                                    <td>₹500</td>
-                                    <td>₹25,000</td>
-                                    <td>4/5</td>
-                                </tr>
-                                <tr>
-                                    <td> <Link to="chapters/1" >Python Basics</Link> </td>
-                                    <td>2342</td>
-                                    <td>₹500</td>
-                                    <td>₹25,000</td>
-                                    <td>4/5</td>
-                                </tr>
-                                <tr>
-                                    <td> <Link to="chapters/1" >Python Basics</Link> </td>
-                                    <td>2342</td>
-                                    <td>₹500</td>
-                                    <td>₹25,000</td>
-                                    <td>4/5</td>
-                                </tr>
-                                <tr>
-                                    <td> <Link to="chapters/1" >Python Basics</Link> </td>
-                                    <td>2342</td>
-                                    <td>₹500</td>
-                                    <td>₹25,000</td>
-                                    <td>4/5</td>
-                                </tr>
+                                {
+                                    courses.map((course,index) => {
+                                        return (
+                                            <tr key={index} className="text-center">
+                                            <td> <Link to={`chapters/${course.id}`} >{course.title}</Link> </td>
+                                            <td>{course.enrolled_students}</td>
+                                            <td>₹ {course.price}</td>
+                                            <td>₹25,000</td>
+                                            <td>4/5</td>
+                                        </tr>
+                                        )
+                                    })
+                                }
+                                
+                                
                                 
                             </tbody>
 
