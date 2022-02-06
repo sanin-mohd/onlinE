@@ -5,13 +5,13 @@ from . import models
 class AccountSerializer(serializers.ModelSerializer):
     class Meta:
         model=models.Account
-        fields=['id','email', 'username','mobile','wallet_balance','interests', 'password','is_active', 'is_staff','is_superuser','last_login','joined_date']
+        fields=['id','email', 'username','mobile','account_holder_name','bank','acc','courses_created','courses_enrolled','ifsc','wallet_balance','interests','dp','is_active','is_superuser','last_login','joined_date']
 
      
 class CourseDetailsSerializer(serializers.ModelSerializer):
     class Meta:
         model=models.CourseDetails
-        fields=['id','category','creator','title','description','price','enrolled_students','created_date']
+        fields=['id','category','creator','title','description','thumbnail','price','used_techs','enrolled_students','created_date']
        
 class CourseCategorySerializer(serializers.ModelSerializer):
     class Meta:

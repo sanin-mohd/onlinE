@@ -9,7 +9,7 @@ class AccountAdmin(admin.ModelAdmin):
     model = models.Account
     list_display = ('username', 'email', 'mobile','wallet_balance','interests','is_staff','is_verified','is_active','last_login','joined_date') 
     
-    readonly_fields = ('last_login','joined_date')
+    readonly_fields = ('last_login','joined_date','password')
     ordering = ('joined_date', )
     filter_horizontal =()
     list_filter = ()

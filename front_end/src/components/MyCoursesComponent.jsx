@@ -17,28 +17,28 @@ function MyCoursesComponent() {
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>Python Basics</td>
+                                    <td> <Link to="chapters/1" >Python Basics</Link> </td>
                                     <td>2342</td>
                                     <td>₹500</td>
                                     <td>₹25,000</td>
                                     <td>4/5</td>
                                 </tr>
                                 <tr>
-                                    <td>Python Basics</td>
+                                    <td> <Link to="chapters/1" >Python Basics</Link> </td>
                                     <td>2342</td>
                                     <td>₹500</td>
                                     <td>₹25,000</td>
                                     <td>4/5</td>
                                 </tr>
                                 <tr>
-                                    <td>Python Basics</td>
+                                    <td> <Link to="chapters/1" >Python Basics</Link> </td>
                                     <td>2342</td>
                                     <td>₹500</td>
                                     <td>₹25,000</td>
                                     <td>4/5</td>
                                 </tr>
                                 <tr>
-                                    <td>Python Basics</td>
+                                    <td> <Link to="chapters/1" >Python Basics</Link> </td>
                                     <td>2342</td>
                                     <td>₹500</td>
                                     <td>₹25,000</td>

@@ -56,7 +56,10 @@ class Account(AbstractBaseUser):
     bank            =models.CharField(max_length=200,null=True,blank=True)
     acc             =models.CharField(max_length=20,null=True,blank=True)
     ifsc            =models.CharField(max_length=20,null=True,blank=True)
-
+    courses_created =models.IntegerField(default=0)
+    courses_enrolled=models.IntegerField(default=0)
+    
+    
     joined_date     =models.DateTimeField(auto_now_add=True)
     last_login      =models.DateTimeField(auto_now=True)
     is_staff        =models.BooleanField(default=False)
@@ -106,11 +109,15 @@ class CourseDetails(models.Model):
     title = models.CharField(max_length=100)
     description = models.TextField(default=None,null=True,blank=True)
     price=models.IntegerField(default=0)
+    thumbnail=models.ImageField(upload_to='photos/course_thumbnail/',null=True,blank=True)
+    used_techs=models.TextField(default=None,null=True,blank=True)
     enrolled_students=models.IntegerField(default=0)
     created_date=models.DateTimeField(auto_now_add=True)
     
     class Meta:
         verbose_name_plural ="3. CourseDetails"
+    def __str__(self):
+        return self.title
 
 class UserCourseProgress(models.Model):
     course      =   models.ForeignKey(CourseDetails,on_delete=models.CASCADE)

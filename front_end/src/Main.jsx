@@ -25,6 +25,7 @@ import AdminCourses from './admin pages/AdminCourses'
 import AdminCategories from './admin pages/AdminCategories'
 import UserDetails from './pages/UserDetails'
 import AllCourses from './pages/AllCourses'
+import Chapters from './pages/Chapters'
 
 function Main() {
 
@@ -52,6 +53,7 @@ function Main() {
         <Route path="/enrolled_courses" element={<RequireAuth><EnrolledCourses/></RequireAuth>}></Route>
         <Route path="/my_students" element={<RequireAuth><MyStudents/></RequireAuth>}></Route>
         <Route path="/my_courses" element={<RequireAuth><MyCourses/></RequireAuth>}></Route>
+        <Route path="/my_courses/chapters/:course_id" element={<RequireAuth><Chapters/></RequireAuth>}></Route>
         <Route path="/add_course" element={<RequireAuth><AddCourse/></RequireAuth>}></Route>
         <Route path="/profile_settings" element={<RequireAuth><ProfileSettings/></RequireAuth>}></Route>
         <Route path="/change_password" element={<RequireAuth><ChangePassword/></RequireAuth>}></Route>

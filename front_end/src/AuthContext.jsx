@@ -83,7 +83,7 @@ export const AuthProvider = ({children})=>{
             if(authToken){
                 updateToken()
             }
-        },40000)
+        },250000)
         return ()=> clearInterval(interval)
 
     },[loading,authToken])
