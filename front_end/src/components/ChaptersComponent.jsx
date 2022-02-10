@@ -146,25 +146,25 @@ function ChaptersComponent() {
                                         
                                         <div className="card-body">
                                     <div className="mb-3 row">
-                                        <label for="staticEmail" className="col-sm-2 col-form-label">Chapter No</label>
+                                        <label htmlFor="staticEmail" className="col-sm-2 col-form-label">Chapter No</label>
                                         <div className="col-sm-6">
                                         <input type="number"  className="form-control-plaintext" id="staticEmail" placeholder="Eg: 3"/>
                                         </div>
                                     </div>
                                     <div className="mb-3 row">
-                                        <label for="staticEmail" className="col-sm-2 col-form-label">Chapter Title</label>
+                                        <label htmlFor="staticEmail" className="col-sm-2 col-form-label">Chapter Title</label>
                                         <div className="col-sm-6">
                                         <input type="text"  className="form-control-plaintext" id="staticEmail" placeholder="Enter Here"/>
                                         </div>
                                     </div>
                                     <div className="mb-3 row">
-                                        <label for="staticEmail" className="col-sm-2 col-form-label">Description</label>
+                                        <label htmlFor="staticEmail" className="col-sm-2 col-form-label">Description</label>
                                         <div className="col-sm-6">
                                         <textarea rows="6" type="text" readonly className="form-control-plaintext" id="staticEmail" placeholder="Enter Here"/>
                                         </div>
                                     </div>
                                     <div className="mb-3 row">
-                                        <label for="staticEmail" className="col-sm-2 col-form-label">Video</label>
+                                        <label htmlFor="staticEmail" className="col-sm-2 col-form-label">Video</label>
                                         <div className="col-sm-6">
                                         <input type="file" readonly className="form-control-plaintext"/>
                                         </div>

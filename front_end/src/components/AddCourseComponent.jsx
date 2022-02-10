@@ -61,7 +61,7 @@ function AddCourseComponent() {
             showConfirmButton: false,
             timer: 1000
             })
-    
+            window.location.reload();
           
         }).catch((error) => {
           console.log(error.response.data);

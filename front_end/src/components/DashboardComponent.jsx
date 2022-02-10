@@ -15,7 +15,7 @@ function DashboardComponent() {
                       <br />
                 <div className="row">
                     <div className="col-md-3">
-                        <img className="avatar" src={user.dp} alt="" />
+                        <img className="avatar" src={user.dp} alt="Not Available" />
 
                     </div>
                     <div className="col-md-9">

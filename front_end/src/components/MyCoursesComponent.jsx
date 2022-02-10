@@ -35,11 +35,18 @@ function MyCoursesComponent() {
                                 {
                                     courses.map((course,index) => {
                                         return (
+                                            
                                             <tr key={index} className="text-center">
-                                            <td> <Link to={`chapters/${course.id}`} >{course.title}</Link> </td>
+                                            <td> 
+                                                
+                                                <Link to={`chapters/${course.id}`} >
+                                                <img src={course.thumbnail} style={{width: 200}}/> <br />
+                                                    {course.title}
+                                                    </Link>
+                                            </td>
                                             <td>{course.enrolled_students}</td>
                                             <td>₹ {course.price}</td>
-                                            <td>₹25,000</td>
+                                            <td>₹ {(course.enrolled_students*course.price)}</td>
                                             <td>4/5</td>
                                         </tr>
                                         )

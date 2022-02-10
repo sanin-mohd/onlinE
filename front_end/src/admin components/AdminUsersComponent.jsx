@@ -1,8 +1,9 @@
 import {React,useEffect,useState} from 'react';
 import {Link} from 'react-router-dom'
-import {getAllUsers} from '../admin axios functions/Axios'
+import {getAllUsers,updateUserStatus} from '../admin axios functions/Axios'
 
 function AdminUsersComponent() {
+    const [userStatus, setUserStatus] = useState(true);
     const arr = [1,2,3,4,5,6]
     const [users, setUsers] = useState([])
     const [loaded, setLoaded] = useState(false);
@@ -16,7 +17,7 @@ function AdminUsersComponent() {
             
         })
 
-    }, [])
+    }, [userStatus])
   return <div>
               <div className="card">
                       <h3 className="card-header">Users</h3>
@@ -42,9 +43,9 @@ function AdminUsersComponent() {
                                         <td>
                                             <p  className="text-decoration-none" >
                                                 {user.is_active ? 
-                                                    <p className='card btn btn-warning text-dark text-decoration-none'>Block</p>
+                                                    <p onClick={()=>{updateUserStatus(false,user.id);setUserStatus(!userStatus) }} className='card btn btn-warning text-dark text-decoration-none'>Block</p>
                                                     :
-                                                    <p className='card btn btn-info text-dark text-decoration-none'>UnBlock</p>
+                                                    <p onClick={()=>{updateUserStatus(true,user.id);setUserStatus(!userStatus)}} className='card btn btn-info text-dark text-decoration-none'>UnBlock</p>
                                                 }
                                                 
                                             </p>

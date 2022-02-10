@@ -1,6 +1,14 @@
-import React from 'react';
+import {React,useState,useEffect} from 'react';
 import {Link} from 'react-router-dom'
+import {getAllcourses} from '../admin axios functions/Axios'
 function AdminCoursesComponent() {
+    const [courses, setCourses] = useState('');
+    useEffect(() => {
+        getAllcourses().then((res)=>{
+            setCourses(res)
+        })
+        
+    },[])
   return <div>
               <div className="card">
                       <h3 className="card-header">Courses</h3>
@@ -9,46 +17,27 @@ function AdminCoursesComponent() {
                             <thead>
                                 <tr>
                                     <th>Course Title</th>
-                                    <th>Author</th>
+                                    <th>Creator</th>
                                     <th>Enrolled Students</th>
                                     <th>Pricing</th>
-                                    <th>Status</th>
-                                    <th>Action</th>
+                                    <th>Revenue</th>
+                                    <th>Rating</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>Python</td>
-                                    <td>Rahul</td>
-                                    <td>133</td>
-                                    <td>₹1,400</td>
-                                    <td><p className="card btn btn-info disabled text-dark">Active</p></td>
-                                    <td><Link to="" className="text-decoration-none" ><p className='card btn btn-warning text-dark text-decoration-none'>Block</p></Link></td>
-                                </tr>
-                                <tr>
-                                <td>Python</td>
-                                    <td>Rahul</td>
-                                    <td>133</td>
-                                    <td>₹1,400</td>
-                                    <td><p className="card btn btn-warning disabled text-dark">InActive</p></td>
-                                    <td><Link to="" className="text-decoration-none" ><p className='card btn btn-info text-dark text-decoration-none'>UnBlock</p></Link></td>
-                                </tr>
-                                <tr>
-                                    <td>Python</td>
-                                    <td>Rahul</td>
-                                    <td>133</td>
-                                    <td>₹1,400</td>
-                                    <td><p className="card btn btn-info disabled text-dark">Active</p></td>
-                                    <td><Link to="" className="text-decoration-none" ><p className='card btn btn-warning text-dark text-decoration-none'>Block</p></Link></td>
-                                </tr>
-                                <tr>
-                                    <td>Python</td>
-                                    <td>Rahul</td>
-                                    <td>133</td>
-                                    <td>₹1,400</td>
-                                    <td><p className="card btn btn-info disabled text-dark">Active</p></td>
-                                    <td><Link to="" className="text-decoration-none" ><p className='card btn btn-warning text-dark text-decoration-none'>Block</p></Link></td>
-                                </tr>
+                                {courses && courses.map((course,index) =>{
+                                    return (
+                                        <tr key={index} className="text-center">
+                                    <td>{course.title}</td>
+                                    <td>{course.creator.email}</td>
+                                    <td>{course.enrolled_students}</td>
+                                    <td>₹ {course.price}</td>
+                                    <td>₹ {(course.enrolled_students*course.price)}</td>
+                                    <td>4/5</td>
+                                    
+                                    </tr>
+                                    )
+                                })}
                                 
                             </tbody>
 

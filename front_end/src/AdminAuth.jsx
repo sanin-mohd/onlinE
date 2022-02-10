@@ -5,6 +5,7 @@ import AuthContext from './AuthContext'
 const AdminAuth =({children, ...rest})=> {
     let {user}=useContext(AuthContext)
     console.log("RequireAuth works");
+    
     return (<>{user.is_superuser ? children : <Navigate to="/login"/>}</>);
 
 }

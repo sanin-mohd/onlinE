@@ -1,6 +1,8 @@
-import React from 'react';
+import {React,useContext} from 'react';
 import {Link} from 'react-router-dom'
+import AuthContext from '../AuthContext';
 function UserSideBar() {
+ const {logOutUser} = useContext(AuthContext)
   return <div>
         <div className="card">
         
@@ -12,7 +14,7 @@ function UserSideBar() {
             <Link to="/enrolled_courses" className="list-group-item list-group-item-action">Enrolled Courses</Link>
             <Link to="/profile_settings" className="list-group-item list-group-item-action">Profile Settings</Link>
             <Link to="/change_password" className="list-group-item list-group-item-action">Change Password</Link>
-            <Link to="/" className="list-group-item list-group-item-action text-danger">Log Out</Link>
+            <p onClick={logOutUser} className="list-group-item list-group-item-action text-danger">Log Out</p>
             
             
 
