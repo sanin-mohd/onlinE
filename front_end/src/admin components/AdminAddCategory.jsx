@@ -52,7 +52,7 @@ function AdminCategory() {
                     </div>
                 </div>
                 
-               <button type="submit" className="btn btn-dark float-end">Add</button>
+               <button type="submit" className="btn btn-dark float-end col-12">Add</button>
 
                 </form>
                 

@@ -3,7 +3,7 @@ from . import models
 # Register your models here.
 admin.site.register(models.CourseCategory)
 admin.site.register(models.CourseDetails)
-
+admin.site.register(models.Chapter)
 
 class AccountAdmin(admin.ModelAdmin):
     model = models.Account

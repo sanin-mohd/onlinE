@@ -67,7 +67,7 @@ function ProfileSettingsComponent() {
                     <input type="text" readonly className="form-control-plaintext" id="staticEmail" placeholder="SBIN0002207"/>
                     </div>
                 </div>
-               <button className="btn btn-dark float-end">Update</button>
+               <button className="btn btn-dark float-end col-12">Update</button>
                 </div>
             </div>
   </div>;

@@ -71,7 +71,7 @@ function AdminCategoriesComponent() {
                                     return (
                                     <tr key={index} className="text-center">
                                     <td>{category.name}</td>
-                                    <td>{category}</td>
+                                    <td>{}</td>
                                     <td><p className="text-decoration-none" ><p onClick={()=>{handleClick(category.id)}} className='card btn btn-danger text-dark text-decoration-none'>Delete</p></p></td>
                                 </tr>
 

@@ -95,13 +95,18 @@ class Account(AbstractBaseUser):
 
         
 class CourseCategory(models.Model):
-    name = models.CharField(max_length=100)
+    name = models.CharField(max_length=100,unique=True)
+    
+    def get_count(self):
+        count=CourseDetails.objects.filter(category=self.name).count()
+        return count
     
     class Meta:
         verbose_name_plural ="2. CourseCategories"
     
     def __str__(self):
         return self.name
+    
     
 class CourseDetails(models.Model):
     category=models.ForeignKey(CourseCategory,on_delete=models.CASCADE,db_column='name')
@@ -118,7 +123,19 @@ class CourseDetails(models.Model):
         verbose_name_plural ="3. CourseDetails"
     def __str__(self):
         return self.title
-
+    
+    
+class Chapter(models.Model):
+    course = models.ForeignKey(CourseDetails, on_delete=models.CASCADE)
+    title = models.CharField(max_length=50, blank=False)
+    no = models.IntegerField()
+    description = models.TextField()
+    video = models.FileField(upload_to='chapter_videos',null=True, blank=True)
+    class Meta:
+        verbose_name_plural ="4. chapters"
+    def __str__(self):
+        return str(self.course)+'---'+str(self.title)
+    
 class UserCourseProgress(models.Model):
     course      =   models.ForeignKey(CourseDetails,on_delete=models.CASCADE)
     user        =   models.ForeignKey(Account,on_delete=models.CASCADE)
@@ -132,6 +149,9 @@ class UserCourseProgress(models.Model):
 
     def __str__(self):
         return self.subject
-    
+
+    class Meta:
+        verbose_name_plural ="5. course_progress"
+
 class TransactionHistory(models.Model):
     pass

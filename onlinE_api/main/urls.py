@@ -14,6 +14,8 @@ urlpatterns = [
     #users
     path('users_list', views.AccountList.as_view()),
     path('user_details/<int:pk>/', views.AccountDetail.as_view()),
+    path('change_password/<int:pk>/', views.change_password),
+    path('check_old_password', views.check_old_password),
     
     #categories
     path('course_category_list',views.CourseCategoryList.as_view()),
@@ -23,6 +25,12 @@ urlpatterns = [
     path('course_list',views.CourseList.as_view()),
     path('course_detail/<int:pk>', views.CourseDetail.as_view()),
     path('user_courses', views.UserCourseList.as_view()),
+    
+    #Chapters
+    path('chapter_list',views.ChapterList.as_view()),
+    path('get_chapters/<int:pk>', views.get_chapters),
+    path('delete_chapter/<int:pk>',views.delete_chapter),
+    
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)
