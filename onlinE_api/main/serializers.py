@@ -15,7 +15,13 @@ class CourseDetailsSerializer(serializers.ModelSerializer):
     class Meta:
         model=models.CourseDetails
         fields=['id','category','creator','title','description','thumbnail','price','used_techs','enrolled_students','created_date']
-       
+
+class CreateCourseSerializer(serializers.ModelSerializer):
+    
+    class Meta:
+        model=models.CourseDetails
+        fields=['id','category','creator','title','description','thumbnail','price','used_techs','enrolled_students','created_date']
+    
 class CourseCategorySerializer(serializers.ModelSerializer):
     class Meta:
         model=models.CourseCategory

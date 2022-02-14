@@ -41,28 +41,28 @@ function AddCourseComponent() {
           console.log(courseDetails);
           console.log(accessToken); 
 
-        //   const form_Data = new FormData();
+          const form_Data = new FormData();
           
-        //   form_Data.append('thumbnail',courseDetails.thumbnail);    
-        //   form_Data.append('category',courseDetails.category);
-        //   form_Data.append('creator',user.user_id);
-        //   form_Data.append('title',courseDetails.title);
-        //   form_Data.append('description',courseDetails.description);
-        //   form_Data.append('price',courseDetails.price);
-        //   form_Data.append('used_techs',courseDetails.used_techs);
-          const data = {
-            'thumbnail':courseDetails.thumbnail,
-            'category':courseDetails.category,
-            'creator':user.user_id,
-            'title':courseDetails.title,
-            'description':courseDetails.description,
-            'price':courseDetails.price,
-            'used_techs':courseDetails.used_techs
-        }
+          form_Data.append('thumbnail',courseDetails.thumbnail);    
+          form_Data.append('category',courseDetails.category);
+          form_Data.append('creator',user.user_id);
+          form_Data.append('title',courseDetails.title);
+          form_Data.append('description',courseDetails.description);
+          form_Data.append('price',courseDetails.price);
+          form_Data.append('used_techs',courseDetails.used_techs);
+        //   const data = {
+        //     'thumbnail':courseDetails.thumbnail,
+        //     'category':courseDetails.category,
+        //     'creator':user.user_id,
+        //     'title':courseDetails.title,
+        //     'description':courseDetails.description,
+        //     'price':courseDetails.price,
+        //     'used_techs':courseDetails.used_techs
+        // }
         console.log("DATA IS");
-        console.log(data);
-          axios.post(BaseUrl+'course_list',
-                        data,
+        // console.log(data);
+          axios.post(BaseUrl+'create_course',
+                        form_Data,
                         { headers: {"Authorization" : `Bearer ${accessToken}`,
                          'content-type' : "multipart/form-data ; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW" 
                         } }).then((response) => {
@@ -125,7 +125,7 @@ function AddCourseComponent() {
                 <div className="mb-3 row">
                     <label htmlFor="staticEmail" className="col-sm-2 col-form-label">Thumbnail</label>
                     <div className="col-sm-6">
-                    <input onChange={handleFileChange} name="thumbnail" type="file" readOnly className="form-control-plaintext"/>
+                    <input onChange={handleFileChange} name="thumbnail" type="file" className="form-control-plaintext"/>
                     </div>
                 </div>
                 <div className="mb-3 row">

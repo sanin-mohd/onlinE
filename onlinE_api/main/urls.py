@@ -23,6 +23,7 @@ urlpatterns = [
     
     #courses
     path('course_list',views.CourseList.as_view()),
+    path('create_course',views.CreateCourse.as_view()),
     path('course_detail/<int:pk>', views.CourseDetail.as_view()),
     path('user_courses', views.UserCourseList.as_view()),
     

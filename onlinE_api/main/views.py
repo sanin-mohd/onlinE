@@ -6,7 +6,7 @@ from rest_framework import status
 from django.http import Http404
 from . import models
 from . models import Account, Chapter, CourseCategory, CourseDetails
-from . serializers import AccountSerializer, ChapterSerializer, CourseCategorySerializer, CourseDetailsSerializer
+from . serializers import AccountSerializer, ChapterSerializer, CourseCategorySerializer, CourseDetailsSerializer, CreateCourseSerializer
 from rest_framework import generics
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 from rest_framework_simplejwt.views import TokenObtainPairView
@@ -19,13 +19,12 @@ class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
         token = super().get_token(user)
 
         # Add custom claims
+        
         token['username'] = user.username
         token['email'] = user.email
         token['wallet_balance'] = user.wallet_balance
         token['is_superuser'] = user.is_superuser
         token['mobile'] = user.mobile
-        
-        
         # ...
 
         return token
@@ -141,6 +140,11 @@ class CourseList(generics.ListCreateAPIView):
     queryset = CourseDetails.objects.all()
     serializer_class = CourseDetailsSerializer
     
+
+class CreateCourse(generics.ListCreateAPIView):
+    permission_classes = [IsAuthenticated]
+    queryset = CourseDetails.objects.all()
+    serializer_class = CreateCourseSerializer
     
 class UserCourseList(generics.ListAPIView):
     serializer_class = CourseDetailsSerializer

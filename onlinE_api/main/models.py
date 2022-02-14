@@ -100,7 +100,7 @@ class CourseCategory(models.Model):
     def get_count(self):
         count=CourseDetails.objects.filter(category=self.name).count()
         return count
-    
+
     class Meta:
         verbose_name_plural ="2. CourseCategories"
     
@@ -109,8 +109,8 @@ class CourseCategory(models.Model):
     
     
 class CourseDetails(models.Model):
-    category=models.ForeignKey(CourseCategory,on_delete=models.CASCADE,db_column='name')
-    creator=models.ForeignKey(Account,on_delete=models.CASCADE,db_column='username')
+    category=models.ForeignKey(CourseCategory,on_delete=models.CASCADE)
+    creator=models.ForeignKey(Account,on_delete=models.CASCADE)
     title = models.CharField(max_length=100)
     description = models.TextField(default=None,null=True,blank=True)
     price=models.IntegerField(default=0)
