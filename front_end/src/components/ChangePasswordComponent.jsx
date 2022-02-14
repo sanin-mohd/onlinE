@@ -31,13 +31,23 @@ function ChangePasswordComponent() {
             errors.password = 
             value.length < 4
                 ? 'Password must be at least 4 characters long!'
-                : '';
+                : document.getElementById("password").value==document.getElementById("c_password").value ? '':'New Password and confirm password must be same';
+            if (errors.password==''){
+                  errors.c_password = ''
+            }else{
+              errors.c_password=errors.password
+            }
             break;
           case 'c_password': 
             errors.c_password = 
               value.length < 4
                 ? 'Password must be at least 4 characters long!'
-                : passwordDetails.password==passwordDetails.c_password ? '':'New Password and confirm password must be same';
+                : document.getElementById("password").value==document.getElementById("c_password").value ? '':'New Password and confirm password must be same';
+            if (errors.c_password==''){
+              errors.password = ''
+            }else{
+              errors.password=errors.c_password
+            }
             break;
           default:
             break;
@@ -62,45 +72,57 @@ function ChangePasswordComponent() {
         const old_passwordData = new FormData()
         old_passwordData.append('old_password',passwordDetails.old_password)
         old_passwordData.append('email',email)
-        axios.post(BaseUrl+'check_old_password',old_passwordData,{ headers: {"Authorization" : `Bearer ${accessToken}`, 'content-type' :'application/json' } }).then((res) => {
-          console.log("-----------------------------");
-          console.log(res.data);
-          if (res.data.status===true){
-                axios.post(BaseUrl+'change_password/'+user_id+'/',_passwordData,{ headers: {"Authorization" : `Bearer ${accessToken}`, 'content-type' :'application/json' } }).then((response) => {
-                console.log(response.data);
-                console.log("Password Changed successfully");
+        if (passwordDetails.errors.old_password != '' || passwordDetails.errors.c_password != '' || passwordDetails.errors.password != '') {
+          Swal.fire({
+            position: 'center',
+            icon: 'error',
+            title: 'Validation Error',
+            showConfirmButton: false,
+            timer: 1000
+          })
+        }else{
+          axios.post(BaseUrl+'check_old_password',old_passwordData,{ headers: {"Authorization" : `Bearer ${accessToken}`, 'content-type' :'application/json' } }).then((res) => {
+            console.log("-----------------------------");
+            console.log(res.data);
+            if (res.data.status===true){
+                  axios.post(BaseUrl+'change_password/'+user_id+'/',_passwordData,{ headers: {"Authorization" : `Bearer ${accessToken}`, 'content-type' :'application/json' } }).then((response) => {
+                  console.log(response.data);
+                  console.log("Password Changed successfully");
+                  Swal.fire({
+                    position: 'center',
+                    icon: 'success',
+                    title: 'Password Changed successfully',
+                    showConfirmButton: false,
+                    timer: 1000
+                    })
+                    window.location.reload();
+                  
+                })
+              }else{
                 Swal.fire({
                   position: 'center',
-                  icon: 'success',
-                  title: 'Password Changed successfully',
+                  icon: 'error',
+                  title: 'Old password is invalid',
                   showConfirmButton: false,
                   timer: 1000
-                  })
-                  window.location.reload();
-                
-              })
-            }else{
-              Swal.fire({
-                position: 'center',
-                icon: 'error',
-                title: 'Old password is invalid',
-                showConfirmButton: false,
-                timer: 1000
-              })
-            }
-        }).catch((error) => {
-        console.log(error.response.data);
-        console.log("---------------CATCH BLOCK");
-        console.log(error.response)
-        Swal.fire({
-          position: 'center',
-          icon: 'error',
-          title: 'Some thing went wrong',
-          showConfirmButton: false,
-          timer: 1000
+                })
+              }
+          }).catch((error) => {
+          console.log(error.response.data);
+          console.log("---------------CATCH BLOCK");
+          console.log(error.response)
+          Swal.fire({
+            position: 'center',
+            icon: 'error',
+            title: 'Some thing went wrong',
+            showConfirmButton: false,
+            timer: 1000
+          })
+            
         })
-          
-      })
+
+        }
+        
        
     };
     
@@ -121,7 +143,7 @@ function ChangePasswordComponent() {
                 <div className="mb-3 row">
                     <label htmlFor="staticEmail" className="col-sm-2 col-form-label">New Password</label>
                     <div className="col-sm-10">
-                    <input onChange={handleChange} type="password" name="password"  className="form-control-plaintext"  placeholder="************"/>
+                    <input onChange={handleChange} type="password" id="password" name="password"  className="form-control-plaintext"  placeholder="************"/>
                     </div>
                     {passwordDetails.errors.password && 
                     <span style={{color: 'red'}} className='error'>{passwordDetails.errors.password}</span>}
@@ -129,7 +151,7 @@ function ChangePasswordComponent() {
                 <div className="mb-3 row">
                     <label htmlFor="staticEmail" className="col-sm-2 col-form-label">Confirm Password</label>
                     <div className="col-sm-10">
-                    <input onChange={handleChange} value={passwordDetails.c_password} type="password" name="c_password"  className="form-control-plaintext"  placeholder="************"/>
+                    <input onChange={handleChange} type="password" name="c_password" id="c_password"  className="form-control-plaintext"  placeholder="************"/>
                     </div>
                     {passwordDetails.errors.c_password &&
                     <span style={{color: 'red'}} className='error'>{passwordDetails.errors.c_password}</span>}

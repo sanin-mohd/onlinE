@@ -11,7 +11,7 @@ from rest_framework import generics
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 from rest_framework_simplejwt.views import TokenObtainPairView
 from rest_framework.decorators import permission_classes
-from rest_framework.permissions import IsAuthenticated,IsAdminUser
+from rest_framework.permissions import IsAuthenticated,IsAdminUser,AllowAny
 
 class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
     @classmethod
@@ -60,7 +60,7 @@ class AccountDetail(APIView):
     """
     Retrieve, update or delete a snippet instance.
     """
-    # permission_classes = [IsAuthenticated]
+    permission_classes = [AllowAny]
     def get_object(self, pk):
         try:
             return Account.objects.get(pk=pk)

@@ -2,16 +2,32 @@ import {React,createContext,useState,useEffect} from 'react';
 import BaseUrl from './BaseUrl'
 import jwt_decode from "jwt-decode";
 import { useNavigate } from 'react-router';
+import axios from 'axios';
+
 
 const AuthContext = createContext()
 export default AuthContext;
 export const AuthProvider = ({children})=>{
+
+    
     let navigate = useNavigate();
     
     const [authToken, setAuthToken] = useState(()=>localStorage.getItem('authToken') ? JSON.parse(localStorage.getItem('authToken')):null);
     const [user, setUser] = useState(()=>localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')):null);
     const [loading, setLoading] = useState(true);
-
+    
+    const getUserData = (id) => {
+        axios.get(BaseUrl+'user_details/'+id).then(response =>{
+            console.log("Got All user Details");
+            console.log(response.data);
+            localStorage.setItem('user_data',JSON.stringify(response.data));
+            
+        }).catch(error =>{
+            console.log("Not working All user Details");
+            console.log(error);
+        })
+        
+    }
     let loginUser = async (userDetails,response) =>{
 
         console.log("Form Submitted");
@@ -23,10 +39,11 @@ export const AuthProvider = ({children})=>{
             setAuthToken(response.data);
 
             var decoded = jwt_decode(response.data.access);
-            console.log("Successfully logged in");
+            console.log("Successfully logged in 1");
             console.log(decoded);
-            console.log("Successfully logged in");
             setUser(decoded);
+            getUserData(decoded.user_id);
+            console.log("Successfully logged in 2 ");
             localStorage.setItem('user', JSON.stringify(decoded));
             localStorage.setItem('authToken', JSON.stringify(response.data));
             if(decoded.is_superuser) {

@@ -10,10 +10,11 @@ import "./Header.css";
 import './Fixed_Header_Footer.css'
 import {Link} from 'react-router-dom';
 import AuthContext from '../AuthContext';
-
+import {useSelector,useDispatch} from 'react-redux'
 
 function Header() {
   const {user,logOutUser} = useContext(AuthContext)
+  const userdata = useSelector(state => state.user_data.value)
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-header">
@@ -52,7 +53,7 @@ function Header() {
             <li className="nav-item ms-3 ">
             <Link to="/home" className="nav-link">
               <Tooltip title="Username">
-                <h6>{user.username}</h6>
+                <h6>{userdata.username}</h6>
               </Tooltip>
             </Link>
           </li>
@@ -79,7 +80,7 @@ function Header() {
                   <Tooltip title="Wallet">
                     <AccountBalanceWalletIcon/>
                   </Tooltip>
-                  <span className='ms-1'>₹ {user.wallet_balance}</span>
+                  <span className='ms-1'>₹ {userdata.wallet_balance}</span>
                 </Link>
               </li>
 

@@ -50,6 +50,7 @@ class Account(AbstractBaseUser):
     mobile          =models.CharField(max_length=10,unique=True,null=True)
     password        =models.CharField(max_length=20,blank=False,null=False)
     dp              =models.ImageField(upload_to='photos/users_dp/',blank=True)
+    bio             =models.TextField(blank=True,null=True)
     interests       =models.TextField(max_length=1000,null=True,blank=True)
     wallet_balance  =models.IntegerField(default=0)
     account_holder_name =models.CharField(max_length=200,null=True,blank=True)
