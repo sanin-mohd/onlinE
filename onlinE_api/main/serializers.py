@@ -7,7 +7,7 @@ class AccountSerializer(serializers.ModelSerializer):
     
     class Meta:
         model=models.Account
-        fields=['id','email', 'username','mobile','account_holder_name','bank','acc','courses_created','courses_enrolled','ifsc','wallet_balance','interests','dp','is_active','is_superuser','last_login','joined_date']
+        fields=['id','email', 'username','bio','mobile','account_holder_name','bank','acc','courses_created','courses_enrolled','ifsc','wallet_balance','interests','dp','is_active','is_superuser','last_login','joined_date']
         extra_kwargs = {'username': {'required': False},'email': {'required': False}}
 
 class CourseDetailsSerializer(serializers.ModelSerializer):
